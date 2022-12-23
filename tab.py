@@ -5,9 +5,6 @@ load_dotenv()
 
 print('dynamodb connected!!....')
 
-# dynamo_client = boto3.resource( service_name = 'dynamodb',region_name = 'us-east-1',aws_access_key_id = 'AKIA3YAIMTT5G5HFETXH', aws_secret_access_key = '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')
-# table = dynamo_client.Table('game_participent')
-
 dynamodb = boto3.resource( service_name = os.getenv('service_name'),region_name = os.getenv('region_name'),aws_access_key_id = os.getenv('aws_access_key_id'), aws_secret_access_key = os.getenv('aws_secret_access_key'))
 existing_tables = [table.name for table in dynamodb.tables.all()]
 # print(existing_tables)
@@ -167,21 +164,3 @@ def run():
             )
 
 run()
-# db = dynamodb.Table('wowowowoow')
-# item = {
-#         'artist':'artist',
-#         'song':'song',
-#         'User_id':'123',
-#         'priceUsdCents':'priceUsdCents',
-#         'publisher':'publisher'
-#         }
-
-# db.put_item( 
-#             Item=item
-#         )
-# print("UPLOADING ITEM")q
-
-# db = dynamodb.Table('Temp_JumbledWord_Session')
-# response = db.query()
-# data = response['Items']
-# print(data)
